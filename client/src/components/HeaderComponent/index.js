@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import logo from '../../assets/images/logo.svg';
 import './style.css';
 
-export default class Header extends React.Component {
+export default class Header extends Component {
   state = {
     menuIsShown: false,
   };
@@ -25,9 +26,9 @@ export default class Header extends React.Component {
               type="button"
               onClick={this.onClickHandler}
             >
-              <div />
-              <div />
-              <div />
+              <div className="burger_div" />
+              <div className="burger_div" />
+              <div className="burger_div" />
             </button>
           </header>
           <p>Hello</p>
@@ -44,9 +45,9 @@ export default class Header extends React.Component {
             type="button"
             onClick={this.onClickHandler}
           >
-            <div />
-            <div />
-            <div />
+            <div className="burger_div" />
+            <div className="burger_div" />
+            <div className="burger_div" />
           </button>
         </header>
       </div>

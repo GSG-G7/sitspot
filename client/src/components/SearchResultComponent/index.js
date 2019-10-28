@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+
 import image from '../../assets/images/placeimg.png';
 import './style.css';
 
@@ -10,8 +11,8 @@ const SearchResult = ({ resultArray }) => {
         return (
           <li key={item.id} className="list_item">
             <img className="list_item_img" alt="one sitSpot" src={image} />
-            <p className>Consect Adip</p>
-            <p>Etiam Dapibus</p>
+            <p className="element_text">Consect Adip</p>
+            <p className="element_text">Etiam Dapibus</p>
           </li>
         );
       })}

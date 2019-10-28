@@ -19,7 +19,7 @@ export default class Header extends Component {
     if (menuIsShown) {
       return (
         <div>
-          <header>
+          <header className="nav_header">
             <img alt="logo" src={logo} />
             <button
               className="burger"
@@ -38,7 +38,7 @@ export default class Header extends Component {
 
     return (
       <div>
-        <header>
+        <header className="nav_header">
           <img alt="logo" src={logo} />
           <button
             className="burger"

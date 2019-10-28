@@ -4,7 +4,17 @@
   "description": "## Problem - People love traveling independently - People are making ethical choices in food, fashion - People want to bring travel in line with their sustainable values - **Travellers lack resources to make informed environment-friendly choices**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node ./server/index.js",
+    "dev": "NODE_ENV=development  concurrently  \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "NODE_ENV=development nodemon server",
+    "dev:client": "cd client && npm run start",
+    "heroku-postbuild": "NODE_ENV=production cd client && npm install && npm run build",
+    "test": "cd client && npm t",
+    "kill": "fuser -k 5000/tcp",
+    "kill-run": "npm run kill && NODE_ENV=development npm run dev",
+    "kill-both": "npm run kill && cd client && fuser -k 3000/tcp",
+    "project-i": "npm i && cd client && npm i",
+    "lint:server": "eslint server/",
     "lint:client": "cd client && npm run lint"
   },
   "repository": {
@@ -20,6 +30,7 @@
   "homepage": "https://github.com/GSG-G7/sitspot#readme",
   "dependencies": {},
   "devDependencies": {
+    "concurrently": "^5.0.0",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.4.0",

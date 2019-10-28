@@ -1,0 +1,21 @@
+.circle-main-color-button {
+  background-color: var(--main-color);
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.circle-main-color-button:hover {
+  background-color: #ff7137;
+}
+
+.floating {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.plus-text {
+  font-size: 4rem;
+}

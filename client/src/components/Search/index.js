@@ -21,14 +21,12 @@ class Search extends Component {
     viewKeywords: false,
   };
 
-  renderOptions = list => {
-    const countres = list.map(item => (
+  renderOptions = list =>
+    list.map(item => (
       <Option key={item} value={item}>
         {item}
       </Option>
     ));
-    return countres;
-  };
 
   onSubmit = () => {};
 
@@ -50,13 +48,11 @@ class Search extends Component {
             value={sitspot}
             dataSource={sitspots}
             placeholder="Place Name"
-            filterOption={(inputValue, option) => {
-              return (
-                option.props.children
-                  .toUpperCase()
-                  .indexOf(inputValue.toUpperCase()) !== -1
-              );
-            }}
+            filterOption={(inputValue, option) =>
+              option.props.children
+                .toUpperCase()
+                .indexOf(inputValue.toUpperCase()) !== -1
+            }
           />
         </div>
 
@@ -79,14 +75,12 @@ class Search extends Component {
             </Select>
           </div>
           <div className="autocomplete-box">
-            <div>WHICH City?</div>
+            <div>Which City?</div>
             <Select
               showSearch
               placeholder="Select"
               optionFilterProp="children"
-              onChange={value => {
-                this.setState({ city: value });
-              }}
+              onChange={value => this.setState({ city: value })}
               value={city}
               filterOption={(input, option) =>
                 option.props.children
@@ -105,21 +99,18 @@ class Search extends Component {
           <Radio.Group className="radio-group" buttonStyle="solid">
             <p className="button-label">What Are You Looking For</p>
             <Radio.Button
-              className="radio-button"
               value="Stay"
               onClick={() => this.setState({ lookingFor: 'stay' })}
             >
               Stay
             </Radio.Button>
             <Radio.Button
-              className="radio-button"
               value="eat"
               onClick={() => this.setState({ lookingFor: 'eat' })}
             >
               Eat & drink
             </Radio.Button>
             <Radio.Button
-              className="radio-button"
               value="shop"
               onClick={() => this.setState({ lookingFor: 'shop' })}
             >
@@ -162,8 +153,12 @@ class Search extends Component {
   }
 }
 
+Search.defaultProps = {
+  sitspots: [],
+};
+
 Search.propTypes = {
-  sitspots: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sitspots: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Search;

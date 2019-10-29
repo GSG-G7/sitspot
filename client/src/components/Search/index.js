@@ -64,7 +64,6 @@ class Search extends Component {
           <div className="autocomplete-box">
             <div>Which Country?</div>
             <Select
-              className="select"
               showSearch
               placeholder="Select"
               optionFilterProp="children"
@@ -82,7 +81,6 @@ class Search extends Component {
           <div className="autocomplete-box">
             <div>WHICH City?</div>
             <Select
-              className="select"
               showSearch
               placeholder="Select"
               optionFilterProp="children"

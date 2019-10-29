@@ -32,10 +32,10 @@ class Search extends Component {
 
   onSubmit = () => {};
 
-  setKeyword = value => {
-    if (value) this.setState({ keyword: value, viewKeywords: false });
-    else this.setState({ viewKeywords: false });
-  };
+  setKeyword = value => this.setState({ keyword: value, viewKeywords: false });
+
+  hideKeyword = () =>
+    this.setState(({ viewKeywords }) => ({ viewKeywords: !viewKeywords }));
 
   render() {
     const { sitspot, country, city, keyword, viewKeywords } = this.state;
@@ -138,7 +138,7 @@ class Search extends Component {
                 }));
               }}
             >
-              KeyWords
+              {keyword || 'Keywords'}
             </Button>
           </div>
         </div>
@@ -151,7 +151,11 @@ class Search extends Component {
           </Button>
         </div>
         {viewKeywords ? (
-          <Keywords keyword={keyword} setKeyword={this.setKeyword} />
+          <Keywords
+            keyword={keyword}
+            setKeyword={this.setKeyword}
+            hideKeyword={this.hideKeyword}
+          />
         ) : (
           ''
         )}

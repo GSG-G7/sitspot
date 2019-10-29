@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { AutoComplete, Select, Radio, Button } from 'antd';
 import world from 'full-countries-cities';
-import 'antd/dist/antd.css';
 
 import Keywords from '../Keywords';
 
@@ -119,20 +118,11 @@ class Search extends Component {
           </Radio.Group>
           <div className="type-filter__container__filter">
             <p className="button-label">Filter</p>
-            <Button
-              onClick={() => {
-                // eslint-disable-next-line no-unused-vars
-                this.setState(_state => ({
-                  viewKeywords: !viewKeywords,
-                }));
-              }}
-            >
-              {keyword || 'Keywords'}
-            </Button>
+            <Button onClick={this.hideKeyword}>{keyword || 'Keywords'}</Button>
           </div>
         </div>
         <div className="form-action">
-          <Button className="search-btn" onClick={() => this.onSubmit()}>
+          <Button className="search-btn" onClick={this.onSubmit}>
             Search
           </Button>
           <Button className="recommendation-btn" onClick={() => {}}>

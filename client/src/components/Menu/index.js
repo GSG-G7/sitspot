@@ -6,6 +6,7 @@ import { Icon } from 'antd';
 import './index.css';
 
 const routes = [
+  { content: 'Add your recommendation', path: '/review' },
   { content: 'FAQ', path: '/faq' },
   { content: 'About us', path: '/about-us' },
   { content: 'Contact', path: '/contact' },
@@ -16,8 +17,8 @@ const Menu = ({ closeHandler }) => {
     <div className="menu">
       <ul className="menu__list">
         <li className="menu__list__item">
-          <NavLink className="menu__list__link" to="/review">
-            Add your recommendation
+          <NavLink className="menu__list__link" to="/search">
+            Search
           </NavLink>
           <Icon
             className="menu__list__close"

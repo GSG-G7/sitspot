@@ -1,10 +1,13 @@
 .nav__header {
+  position: absolute;
   height: 10vh;
   background-color: transparent;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 1rem;
   text-align: center;
+  width: 100%;
+  z-index: 1;
 }
 
 .header__button {

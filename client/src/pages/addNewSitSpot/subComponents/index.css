@@ -1,0 +1,57 @@
+.title {
+  text-align: start;
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.input {
+  display: block;
+  width: 90%;
+  font-family: inherit;
+  color: rgb(79, 176, 174);
+  font-size: 1.8rem;
+  border: 0;
+  outline: none;
+  background-color: inherit;
+  padding: 0.8rem 0.2rem;
+  margin: 0 auto 3rem auto;
+  cursor: text;
+  border-bottom: 0.1rem solid #4fb0ae;
+}
+
+.name_title {
+  margin-bottom: 3rem;
+}
+
+.name__img-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.img-box--img {
+  width: 90%;
+}
+
+.name__input:focus {
+  border-bottom: 0;
+}
+
+.name__input::placeholder {
+  color: #4fb0aeb7;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
+}
+
+
+/* Country Component */
+.ant-select-country {
+  border-radius: 0 !important;
+}
+
+.autocomplete-box {
+  text-align:center;
+  width:100%;
+}

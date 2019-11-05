@@ -7,6 +7,7 @@ const searchData = [
       alt: 'boat in the see',
     },
     description: 'hi from london',
+    country: 'UK',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const searchData = [
       alt: 'boats in a lake',
     },
     description: 'restaurant',
+    country: 'UK',
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const searchData = [
       alt: 'something',
     },
     description: 'hi from london',
+    country: 'UK',
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const searchData = [
       alt: 'eat',
     },
     description: 'hi from london',
+    country: 'UK',
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const searchData = [
       alt: 'eat',
     },
     description: 'restaurant in the planet',
+    country: 'UK',
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ const searchData = [
       alt: 'eat',
     },
     description: 'hotel in palestine',
+    country: 'UK',
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ const searchData = [
       alt: 'eat',
     },
     description: 'resturant in nethrlands',
+    country: 'UK',
   },
 ];
 

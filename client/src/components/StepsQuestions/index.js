@@ -160,11 +160,23 @@ const StepsQuestions = ({ questions, current, values, funcs, classes }) => (
 );
 
 StepsQuestions.propTypes = {
-  questions: propTypes.arrayOf(propTypes.any).isRequired,
   current: propTypes.number.isRequired,
-  funcs: propTypes.objectOf(propTypes.any).isRequired,
-  values: propTypes.objectOf(propTypes.any).isRequired,
   classes: propTypes.arrayOf(propTypes.string),
+  questions: propTypes.arrayOf(propTypes.any).isRequired,
+  funcs: propTypes.shape({
+    next: propTypes.func.isRequired,
+    prev: propTypes.func.isRequired,
+    handelChange: propTypes.func.isRequired,
+  }).isRequired,
+  values: propTypes.shape({
+    name: propTypes.string.isRequired,
+    linkSite: propTypes.string.isRequired,
+    country: propTypes.string.isRequired,
+    city: propTypes.string.isRequired,
+    businessType: propTypes.string.isRequired,
+    imgUrlOne: propTypes.string,
+    imgUrlTwo: propTypes.string,
+  }).isRequired,
 };
 
 StepsQuestions.defaultProps = {

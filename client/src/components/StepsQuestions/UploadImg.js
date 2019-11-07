@@ -4,6 +4,9 @@ import propTypes from 'prop-types';
 
 import './index.css';
 
+const FIRST_IMAGE_UPLOAD_STEP = 5;
+const SECOND_IMAGE_UPLOAD_STEP = 6;
+
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
   reader.addEventListener('load', () => callback(reader.result));
@@ -32,26 +35,15 @@ class UploadImg extends Component {
   handleChange = info => {
     if (info.file.status === 'uploading') {
       this.setState({ loading: true });
-      return;
-    }
-    if (info.file.status === 'done') {
+    } else if (info.file.status === 'done') {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, imgUrl => {
         const { handelChange, current } = this.props;
-        if (current === 5) {
-          handelChange(imgUrl, 'imgUrlOne');
-          return this.setState({
-            loading: false,
-          });
-        }
-        if (current === 6) {
-          handelChange(imgUrl, 'imgUrlTwo');
-          return this.setState({
-            loading: false,
-          });
-        }
-
-        return '';
+        handelChange(
+          imgUrl,
+          current === FIRST_IMAGE_UPLOAD_STEP ? 'imgUrlOne' : 'imgUrlTwo'
+        );
+        this.setState({ loading: false });
       });
     }
   };
@@ -60,9 +52,9 @@ class UploadImg extends Component {
     const { loading } = this.state;
     const { values, current } = this.props;
     let imgUrl;
-    if (current === 5) {
+    if (current === FIRST_IMAGE_UPLOAD_STEP) {
       imgUrl = values.imgUrlOne;
-    } else if (current === 6) {
+    } else if (current === SECOND_IMAGE_UPLOAD_STEP) {
       imgUrl = values.imgUrlTwo;
     }
 

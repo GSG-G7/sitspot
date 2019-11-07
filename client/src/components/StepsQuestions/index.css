@@ -16,7 +16,7 @@
   padding: 1.6rem 0.4rem;
 }
 
-.title {
+.steps .title {
   text-align: start;
   font-size: 1.6rem;
   margin-bottom: 3rem;
@@ -33,7 +33,7 @@
   width: 90%;
 }
 
-.input {
+.steps .input {
   display: block;
   width: 90%;
   font-family: inherit;

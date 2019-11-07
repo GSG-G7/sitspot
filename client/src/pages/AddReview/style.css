@@ -1,0 +1,24 @@
+.header-img {
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1536007164800-b7f11331f35c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+}
+
+.add-new-review-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
+
+.add-new-review__btn {
+  margin: 1rem auto ;
+  font-weight: 700;
+  background-color: var(--main-color);
+  height: 12vh;
+  width: 90%;
+  align-self: flex-end;
+}
+
+.add-new-review__title {
+  font-size: 3rem;
+}

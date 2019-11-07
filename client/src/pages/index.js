@@ -1,6 +1,7 @@
+import AddReview from './AddReview';
 import FAQ from './FAQ';
+import AboutUs from './AboutUs';
 import Search from './Search';
-import AboutUs from './aboutUs';
 import AddNewSitSpot from './addNewSitSpot';
 
-export { FAQ, AboutUs, Search, AddNewSitSpot };
+export { AddReview, FAQ, AboutUs, Search, AddNewSitSpot };

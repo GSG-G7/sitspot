@@ -121,6 +121,21 @@ const renderQuestion = (questions, values, current, funcs, classes) => (
   </div>
 );
 
+const renderButton = (text, func, type, style) => (
+  <Button
+    style={{ visibility: style }}
+    className="steps__btn"
+    type={type || ''}
+    onClick={() =>
+      typeof func !== 'string'
+        ? func()
+        : message.success('Processing complete!')
+    }
+  >
+    {text}
+  </Button>
+);
+
 const StepsQuestions = ({ questions, current, values, funcs, classes }) => (
   <div className="steps">
     <Steps current={current}>
@@ -128,52 +143,19 @@ const StepsQuestions = ({ questions, current, values, funcs, classes }) => (
         <Step key={id} />
       ))}
     </Steps>
-
     <div className="steps-content">
       {renderQuestion(questions, values, current, funcs, classes)}
     </div>
-
     <div className="steps-action">
-      {current < questions.length - 1 && (
-        <Button
-          className="steps__btn"
-          type="primary"
-          onClick={() => {
-            funcs.next();
-          }}
-        >
-          Next
-        </Button>
-      )}
-      {current === questions.length - 1 && (
-        <Button
-          className="steps__btn"
-          type="primary"
-          onClick={() => message.success('Processing complete!')}
-        >
-          Done
-        </Button>
-      )}
-      {!current > 0 ? (
-        <Button
-          style={{ visibility: 'hidden' }}
-          className="steps__btn"
-          onClick={() => {
-            funcs.prev();
-          }}
-        >
-          Previous
-        </Button>
-      ) : (
-        <Button
-          className="steps__btn"
-          onClick={() => {
-            funcs.prev();
-          }}
-        >
-          Previous
-        </Button>
-      )}
+      {current < questions.length - 1 &&
+        renderButton('Next', funcs.next, 'primary')}
+
+      {current === questions.length - 1 &&
+        renderButton('Done', 'message', 'primary')}
+
+      {!current > 0
+        ? renderButton('Previouis', funcs.prev, null, 'hidden')
+        : renderButton('Previouis', funcs.prev, null)}
     </div>
   </div>
 );

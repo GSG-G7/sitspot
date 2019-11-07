@@ -72,3 +72,21 @@
 .type__title {
   margin-bottom: 7rem;
 }
+
+
+/* ================================= */
+/* BUTTON STYLE */
+/* ================================= */
+.steps .steps-action .steps__btn {
+  width: 30%;
+}
+
+.steps .steps-action .steps__btn--left {
+  position: relative;
+  right: 1.5rem;
+}
+
+.steps .steps-action  .steps__btn--right {
+  position: relative;
+  left: 1.5rem;
+}

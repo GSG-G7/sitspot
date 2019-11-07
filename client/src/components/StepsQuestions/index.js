@@ -121,10 +121,11 @@ const renderQuestion = (questions, values, current, funcs, classes) => (
   </div>
 );
 
-const renderButton = (text, func, type, style) => (
+const renderButton = (text, func, type) => (
   <Button
-    style={{ visibility: style }}
-    className="steps__btn"
+    className={`steps__btn steps__btn--${
+      text === 'Previouis' ? 'left' : 'right'
+    }`}
     type={type || ''}
     onClick={() =>
       typeof func !== 'string'
@@ -153,9 +154,7 @@ const StepsQuestions = ({ questions, current, values, funcs, classes }) => (
       {current === questions.length - 1 &&
         renderButton('Done', 'message', 'primary')}
 
-      {!current > 0
-        ? renderButton('Previouis', funcs.prev, null, 'hidden')
-        : renderButton('Previouis', funcs.prev, null)}
+      {current > 0 && renderButton('Previouis', funcs.prev)}
     </div>
   </div>
 );

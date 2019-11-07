@@ -1,6 +1,5 @@
-.add-place__container {
+.add-place__wrapper {
   padding: 0 1.5rem;
-  margin-top: 3rem;
 }
 
 .add-place__header {
@@ -8,20 +7,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 10vh;
-}
-
-.steps-content {
-  margin-top: 16px;
-  border: 1px dashed #e9e9e9;
-  border-radius: 6px;
-  background-color: #fafafa;
-  min-height: 200px;
-  text-align: center;
-  padding: 1.6rem 0.4rem;
-  min-height: 40rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .steps-action {
@@ -44,6 +29,10 @@
   display: none;
 }
 
+#add-place .ant-steps-item-icon {
+  margin: 0;
+}
+
 /* ================= override on style antd SELECT */
 
 #add-place .ant-select {
@@ -64,13 +53,53 @@
   font-size: 2rem;
 }
 
+.ant-select-selection-selected-value {
+  line-height: 5rem;
+  font-size: 2rem;
+}
+
 /* ================= override on style antd Radio */
 
 #add-place .ant-radio-group {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #add-place .ant-radio-button-wrapper {
   margin-bottom: 1.5rem;
+  width: 70%;
+  text-align: center;
+  height: auto;
+  padding: 1rem 1.5rem;
+}
+
+.ant-radio-button-wrapper span {
+  font-size: 1.8rem;
+}
+
+/* ================= override on style antd UPload image */
+
+#add-place .ant-upload-picture-card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#add-place .ant-upload-select-picture-card {
+  height: 20rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.anticon-plus {
+  font-size: 3rem;
+  font-weight: 200;
+}
+
+.ant-upload-text {
+  font-size: 2.5rem;
+}
+
+.anticon-loading {
+  font-size: 3rem;
 }

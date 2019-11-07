@@ -1,0 +1,193 @@
+import React from 'react';
+import propTypes from 'prop-types';
+import { Steps, Button, message, Select, Radio } from 'antd';
+import { getCountryNames, getCities } from 'full-countries-cities';
+
+import UploadImg from './UploadImg';
+
+import './index.css';
+
+const { Step } = Steps;
+
+const handleChangeInput = (value, nameState, cb) => {
+  cb(value, nameState);
+};
+
+const renderInput = (values, current, funcs) => {
+  const stateKey = current === 0 ? 'name' : 'linkSite';
+  return (
+    <input
+      className="input "
+      type="text"
+      placeholder={current === 0 ? 'Type your answer here' : 'http://'}
+      value={current === 0 ? values.name : values.linkSite}
+      onChange={event =>
+        handleChangeInput(event.target.value, stateKey, funcs.handelChange)
+      }
+    />
+  );
+};
+
+const renderOptions = list => {
+  const { Option } = Select;
+
+  return list.map(item => (
+    <Option key={item} value={item}>
+      {item}
+    </Option>
+  ));
+};
+
+const dropDownFilter = (input, option) =>
+  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+
+const renderSelect = (values, current, funcs) => {
+  const stateKey = current === 2 ? 'country' : 'city';
+  let cities;
+  if (current === 3) {
+    cities = values.country ? getCities(values.country) : [];
+  }
+  return (
+    <Select
+      className="ant-select-country"
+      showSearch
+      placeholder="Select"
+      optionFilterProp="children"
+      value={current === 2 ? values.country : values.city}
+      onChange={value => handleChangeInput(value, stateKey, funcs.handelChange)}
+      filterOption={dropDownFilter}
+    >
+      {current === 2 ? renderOptions(getCountryNames()) : renderOptions(cities)}
+    </Select>
+  );
+};
+
+const renderRadio = (values, funcs) => {
+  const BusinessTypes = Object.freeze({
+    stay: 'place to stay',
+    food: 'place to eat or drink',
+    shop: 'place to shop',
+  });
+
+  return (
+    <Radio.Group value={values.businessType} buttonStyle="solid">
+      {Object.entries(BusinessTypes).map(([key, value]) => (
+        <Radio.Button
+          key={key}
+          value={key}
+          onClick={event =>
+            handleChangeInput(
+              event.target.value,
+              'businessType',
+              funcs.handelChange
+            )
+          }
+        >
+          {value}
+        </Radio.Button>
+      ))}
+    </Radio.Group>
+  );
+};
+
+const renderQuestion = (questions, values, current, funcs, classes) => (
+  <div className={classes[current]}>
+    <h2 className={`title ${classes[current]}__title`}>
+      {questions[current].title}
+    </h2>
+    {questions[current].imgUrl && (
+      <div className="img__box">
+        <img
+          className="img__box--img"
+          src={questions[current].imgUrl}
+          alt="img question"
+        />
+      </div>
+    )}
+    {current < 2 && renderInput(values, current, funcs)}
+    {current >= 2 &&
+      current < 4 &&
+      renderSelect(values, current, funcs, classes)}
+
+    {current === 4 && renderRadio(values, funcs)}
+    {current >= 5 &&
+      (current <= 6 && (
+        <UploadImg
+          values={values}
+          current={current}
+          handelChange={funcs.handelChange}
+        />
+      ))}
+  </div>
+);
+
+const StepsQuestions = ({ questions, current, values, funcs, classes }) => (
+  <div className="steps">
+    <Steps current={current}>
+      {questions.map(({ id }) => (
+        <Step key={id} />
+      ))}
+    </Steps>
+
+    <div className="steps-content">
+      {renderQuestion(questions, values, current, funcs, classes)}
+    </div>
+
+    <div className="steps-action">
+      {current < questions.length - 1 && (
+        <Button
+          className="steps__btn"
+          type="primary"
+          onClick={() => {
+            funcs.next();
+          }}
+        >
+          Next
+        </Button>
+      )}
+      {current === questions.length - 1 && (
+        <Button
+          className="steps__btn"
+          type="primary"
+          onClick={() => message.success('Processing complete!')}
+        >
+          Done
+        </Button>
+      )}
+      {!current > 0 ? (
+        <Button
+          style={{ visibility: 'hidden' }}
+          className="steps__btn"
+          onClick={() => {
+            funcs.prev();
+          }}
+        >
+          Previous
+        </Button>
+      ) : (
+        <Button
+          className="steps__btn"
+          onClick={() => {
+            funcs.prev();
+          }}
+        >
+          Previous
+        </Button>
+      )}
+    </div>
+  </div>
+);
+
+StepsQuestions.propTypes = {
+  questions: propTypes.arrayOf(propTypes.any).isRequired,
+  current: propTypes.number.isRequired,
+  funcs: propTypes.objectOf(propTypes.any).isRequired,
+  values: propTypes.objectOf(propTypes.any).isRequired,
+  classes: propTypes.arrayOf(propTypes.string),
+};
+
+StepsQuestions.defaultProps = {
+  classes: '',
+};
+
+export default StepsQuestions;

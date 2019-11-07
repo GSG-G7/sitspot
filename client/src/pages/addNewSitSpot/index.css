@@ -23,10 +23,15 @@
 /* ================= override on style antd STEPS */
 #add-place .ant-steps-horizontal {
   display: flex;
+
 }
 
 #add-place .ant-steps-item-tail {
-  display: none;
+  top: -0.9rem;
+  left: 2.8rem;
+  z-index: -1;
+  transform: rotate(270deg);
+  padding: 1rem 0 0px !important;
 }
 
 #add-place .ant-steps-item-icon {

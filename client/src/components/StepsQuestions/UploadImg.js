@@ -41,7 +41,7 @@ class UploadImg extends Component {
         const { handleChange, currentStep } = this.props;
         handleChange(
           imgUrl,
-          currentStep === FIRST_IMAGE_UPLOAD_STEP ? 'imgUrlOne' : 'imgUrlTwo'
+          currentStep === FIRST_IMAGE_UPLOAD_STEP ? 'img1' : 'img2'
         );
         this.setState({ loading: false });
       });
@@ -53,9 +53,9 @@ class UploadImg extends Component {
     const { values, currentStep } = this.props;
     let imgUrl;
     if (currentStep === FIRST_IMAGE_UPLOAD_STEP) {
-      imgUrl = values.imgUrlOne;
+      imgUrl = values.img1;
     } else if (currentStep === SECOND_IMAGE_UPLOAD_STEP) {
-      imgUrl = values.imgUrlTwo;
+      imgUrl = values.img2;
     }
 
     const uploadButton = (

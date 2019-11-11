@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { StepsQuestions } from '../../components';
 
 import Questions from './fakeData';
@@ -27,6 +28,12 @@ class AddNewSitSpot extends Component {
       imgUrlTwo: null,
     },
     currentStep: 0,
+  };
+
+  onSubmit = () => {
+    const { data } = this.state;
+    axios.post('/api/v1/add-place', { data });
+    // .then(result => console.log(result));
   };
 
   handleChange = (value, dataKey) => {
@@ -61,6 +68,7 @@ class AddNewSitSpot extends Component {
               next: this.next,
               prev: this.prev,
               handleChange: this.handleChange,
+              onSubmit: this.onSubmit,
             }}
           />
         </div>

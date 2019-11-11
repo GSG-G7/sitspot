@@ -153,7 +153,9 @@ const StepsQuestions = ({ questions, currentStep, values, funcs, classes }) => (
         renderButton(ButtonInfo.NEXT, funcs.next, ButtonInfo.TYPE)}
 
       {currentStep === questions.length - 1 &&
-        renderButton(ButtonInfo.DONE, null, ButtonInfo.TYPE)}
+        renderButton(ButtonInfo.DONE, funcs.onSubmit, ButtonInfo.TYPE)}
+      {/* {currentStep === questions.length - 1 &&
+        renderButton(ButtonInfo.DONE, null, ButtonInfo.TYPE)} */}
 
       {currentStep > 0 &&
         renderButton(ButtonInfo.PREVIOUS, funcs.prev, null, true)}
@@ -169,6 +171,7 @@ StepsQuestions.propTypes = {
     next: propTypes.func.isRequired,
     prev: propTypes.func.isRequired,
     handleChange: propTypes.func.isRequired,
+    onSubmit: propTypes.func.isRequired,
   }).isRequired,
   values: propTypes.shape({
     name: propTypes.string.isRequired,

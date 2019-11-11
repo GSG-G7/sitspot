@@ -1,7 +1,7 @@
 const Airtable = require('airtable');
 
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test')
-  // eslint-disable-next-line global-require, import/no-unresolved
+  // eslint-disable-next-line global-require, import/no-unresolved, import/no-extraneous-dependencies
   require('env2')('.env');
 
 Airtable.configure({
@@ -9,4 +9,7 @@ Airtable.configure({
   apiKey: process.env.AIRTABLE_KEY,
 });
 
-module.exports = Airtable.base(process.env.AIRTABLE_BASE_ID);
+module.exports = {
+  typeformBase: Airtable.base(process.env.TYPEFORM_BASE),
+  staticsBase: Airtable.base(process.env.STATICS_BASE),
+};

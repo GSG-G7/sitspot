@@ -7,9 +7,11 @@
 
 .slider__slide__picture {
   width: 100%;
+  margin-bottom: 3%;
 }
 
 .slider__slide__caption {
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-weight: 720;
+  font-size: 1.7rem;
+  font-family: "Raleway", sans-serif;
 }

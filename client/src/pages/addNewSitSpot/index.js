@@ -32,7 +32,12 @@ class AddNewSitSpot extends Component {
 
   onSubmit = () => {
     const { data } = this.state;
-    axios.post('/api/v1/add-place', { data });
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => formData.append(key, value));
+
+    axios.post('/api/v1/add-place', formData, {
+      headers: { 'content-type': 'multipart/formdata' },
+    });
     // .then(result => console.log(result));
   };
 
@@ -43,18 +48,19 @@ class AddNewSitSpot extends Component {
     }));
   };
 
-  next = () => {
-    const { currentStep } = this.state;
-    this.setState({ currentStep: currentStep + 1 });
-  };
+  next = () =>
+    this.setState(({ currentStep }) => ({
+      currentStep: currentStep + 1,
+    }));
 
-  prev = () => {
-    const { currentStep } = this.state;
-    this.setState({ currentStep: currentStep - 1 });
-  };
+  prev = () =>
+    this.setState(({ currentStep }) => ({
+      currentStep: currentStep - 1,
+    }));
 
   render() {
     const { currentStep, data } = this.state;
+    // console.log(this.state.data.imgUrlOne);
     return (
       <div id="add-place" className="add-place">
         <div className="add-place__header"> </div>

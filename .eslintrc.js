@@ -13,7 +13,8 @@ module.exports = {
       ecmaVersion: 2018,
     },
     rules: {
-      "no-unused-vars": ["error", { "args": "none" }],
+    "arrow-body-style": ["error", "as-needed"],
+    "no-unused-vars": ["error", { "args": "none" }],
        // configure the prettier plugin
       "prettier/prettier": [
         "error",

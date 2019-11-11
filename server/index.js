@@ -1,5 +1,9 @@
 const app = require('./app');
 
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test')
+  // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+  require('env2')('.env');
+
 const port = app.get('port');
 
 app.listen(port, () => {

@@ -35,7 +35,7 @@ class AddNewSitSpot extends Component {
     const formData = new FormData();
     Object.entries(data).forEach(([key, value]) => formData.append(key, value));
 
-    axios.post('/api/v1/add-place', formData, {
+    axios.post('/api/v1/place', formData, {
       headers: { 'content-type': 'multipart/formdata' },
     });
     // .then(result => console.log(result));

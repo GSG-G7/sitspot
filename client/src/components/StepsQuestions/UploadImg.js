@@ -38,10 +38,10 @@ class UploadImg extends Component {
     } else if (info.file.status === 'done') {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, imgUrl => {
-        const { handelChange, current } = this.props;
-        handelChange(
+        const { handleChange, currentStep } = this.props;
+        handleChange(
           imgUrl,
-          current === FIRST_IMAGE_UPLOAD_STEP ? 'imgUrlOne' : 'imgUrlTwo'
+          currentStep === FIRST_IMAGE_UPLOAD_STEP ? 'imgUrlOne' : 'imgUrlTwo'
         );
         this.setState({ loading: false });
       });
@@ -50,11 +50,11 @@ class UploadImg extends Component {
 
   render() {
     const { loading } = this.state;
-    const { values, current } = this.props;
+    const { values, currentStep } = this.props;
     let imgUrl;
-    if (current === FIRST_IMAGE_UPLOAD_STEP) {
+    if (currentStep === FIRST_IMAGE_UPLOAD_STEP) {
       imgUrl = values.imgUrlOne;
-    } else if (current === SECOND_IMAGE_UPLOAD_STEP) {
+    } else if (currentStep === SECOND_IMAGE_UPLOAD_STEP) {
       imgUrl = values.imgUrlTwo;
     }
 
@@ -91,8 +91,8 @@ class UploadImg extends Component {
 
 UploadImg.propTypes = {
   values: propTypes.objectOf(propTypes.any).isRequired,
-  handelChange: propTypes.func.isRequired,
-  current: propTypes.number.isRequired,
+  handleChange: propTypes.func.isRequired,
+  currentStep: propTypes.number.isRequired,
 };
 
 export default UploadImg;

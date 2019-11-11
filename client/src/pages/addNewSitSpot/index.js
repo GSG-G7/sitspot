@@ -26,10 +26,10 @@ class AddNewSitSpot extends Component {
       imgUrlOne: null,
       imgUrlTwo: null,
     },
-    current: 0,
+    currentStep: 0,
   };
 
-  handelChange = (value, dataKey) => {
+  handleChange = (value, dataKey) => {
     this.setState(prevState => ({
       ...prevState,
       data: { ...prevState.data, [dataKey]: value },
@@ -37,17 +37,17 @@ class AddNewSitSpot extends Component {
   };
 
   next = () => {
-    const { current } = this.state;
-    this.setState({ current: current + 1 });
+    const { currentStep } = this.state;
+    this.setState({ currentStep: currentStep + 1 });
   };
 
   prev = () => {
-    const { current } = this.state;
-    this.setState({ current: current - 1 });
+    const { currentStep } = this.state;
+    this.setState({ currentStep: currentStep - 1 });
   };
 
   render() {
-    const { current, data } = this.state;
+    const { currentStep, data } = this.state;
     return (
       <div id="add-place" className="add-place">
         <div className="add-place__header"> </div>
@@ -56,11 +56,11 @@ class AddNewSitSpot extends Component {
             classes={Classes}
             values={data}
             questions={Questions}
-            current={current}
+            currentStep={currentStep}
             funcs={{
               next: this.next,
               prev: this.prev,
-              handelChange: this.handelChange,
+              handleChange: this.handleChange,
             }}
           />
         </div>

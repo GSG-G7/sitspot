@@ -16,7 +16,7 @@ module.exports = image =>
         width: 3000,
         height: 2000,
       },
-      (result, err) => {
+      (err, result) => {
         if (err) return reject(err);
         return resolve(result);
       }

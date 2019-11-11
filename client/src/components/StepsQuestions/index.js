@@ -10,9 +10,9 @@ import './index.css';
 const { Step } = Steps;
 
 const BusinessTypes = Object.freeze({
-  STAY: 'place to stay',
-  FOOD: 'place to eat or drink',
-  SHOP: 'place to shop',
+  stay: 'place to stay',
+  eat: 'place to eat or drink',
+  shop: 'place to shop',
 });
 
 const handleChangeInput = (value, nameState, cb) => {

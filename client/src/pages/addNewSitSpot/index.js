@@ -24,8 +24,8 @@ class AddNewSitSpot extends Component {
       country: '',
       city: '',
       businessType: '',
-      imgUrlOne: null,
-      imgUrlTwo: null,
+      img1: null,
+      img2: null,
     },
     currentStep: 0,
   };

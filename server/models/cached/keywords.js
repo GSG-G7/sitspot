@@ -44,16 +44,6 @@ module.exports = {
   //   src:
   //     'https://res.cloudinary.com/amoodaa/image/upload/v1573747931/keywords/Layer_13_a0dkid.png',
   // },
-  // pr_vegan_cuisine: {
-  //   name: 'Vegan',
-  //   src:
-  //     'https://res.cloudinary.com/amoodaa/image/upload/v1573747932/keywords/Layer_18_hfkf19.png',
-  // },
-  // pr_vegetarian_cuisine: {
-  //   name: 'Vegetarian friendly',
-  //   src:
-  //     'https://res.cloudinary.com/amoodaa/image/upload/v1573747931/keywords/Layer_15_cfeamh.png',
-  // },
   // price_budget: { name: 'Budget', src: '' },
   // price_luxury: {
   //   name: 'Luxurious',
@@ -76,9 +66,19 @@ module.exports = {
   //   src:
   //     'https://res.cloudinary.com/amoodaa/image/upload/v1573747930/keywords/Layer_7_golpzh.png',
   // },
-  // pr_resource_preservation: { name: 'Resource preservation', src: '' },
-  // pr_waste_management: { name: 'Waste management', src: '' },
-  // pr_food_impact: { name: 'Food impact', src: '' },
-  // pr_transport_impact: { name: 'Transport impact', src: '' },
-  // pr_support_local: { name: 'Support local economy', src: '' },
+  pr_resource_preservation: { name: 'Resource preservation', src: '' },
+  pr_waste_management: { name: 'Waste management', src: '' },
+  pr_food_impact: { name: 'Food impact', src: '' },
+  pr_transport_impact: { name: 'Transport impact', src: '' },
+  pr_support_local: { name: 'Support local economy', src: '' },
+  pr_vegan_cuisine: {
+    name: 'Vegan',
+    src:
+      'https://res.cloudinary.com/amoodaa/image/upload/v1573747932/keywords/Layer_18_hfkf19.png',
+  },
+  pr_vegetarian_cuisine: {
+    name: 'Vegetarian friendly',
+    src:
+      'https://res.cloudinary.com/amoodaa/image/upload/v1573747931/keywords/Layer_15_cfeamh.png',
+  },
 };

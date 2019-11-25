@@ -9,18 +9,13 @@ import './style.css';
 
 class SinglePlace extends Component {
   state = {
+    loading: true,
     sitspot: {
-      name: 'you are probably seeing a placeholder',
-      country: 'country',
-      city: 'city',
-      url: 'https://sitspot.herokuapp.com/',
-      images: [
-        {
-          id: 1,
-          src:
-            'https://res.cloudinary.com/amoodaa/image/upload/v1574670362/IMG_20190611_141513_wdxzb3.jpg',
-        },
-      ],
+      name: '',
+      country: '',
+      city: '',
+      url: '',
+      images: [],
       reviews: [],
     },
   };
@@ -29,13 +24,17 @@ class SinglePlace extends Component {
     const { type, sitspotId } = this.props;
     const { sitspot } = this.state;
     getPlaceReviews(type, sitspotId).then(({ data: newSitspot }) => {
-      this.setState({ sitspot: { ...sitspot, ...newSitspot } });
+      this.setState({
+        sitspot: { ...sitspot, ...newSitspot },
+        loading: false,
+      });
     });
   }
 
   render() {
     const { type, sitspotId, history } = this.props;
     const {
+      loading,
       sitspot: { name, country, city, url, images, reviews },
     } = this.state;
     return (
@@ -64,19 +63,34 @@ class SinglePlace extends Component {
               <span className="button-text"> Add your recommendation</span>
             </Button>
           </div>
-          <p className="place-name-location">
-            {`${name}, ${city}, ${country}`}{' '}
-          </p>
-          <a href={url} className="website-link">
-            {url}
-          </a>
+          {loading && (
+            <Icon
+              type="loading"
+              style={{ fontSize: 100, display: 'block', margin: '2rem auto' }}
+              spin
+            />
+          )}
+          {!loading && (
+            <>
+              <p className="place-name-location">
+                {`${name}, ${city}, ${country}`}{' '}
+              </p>
+              <a href={url} className="website-link">
+                {url}
+              </a>
+            </>
+          )}
         </div>
-        <div className="single-place__slider">
-          <ImageCarousel slides={images} smallTitle />
-        </div>
-        <span className="recommended-by-text">
-          Recommended by {reviews.length} contributors
-        </span>
+        {!loading && (
+          <>
+            <div className="single-place__slider">
+              <ImageCarousel slides={images} smallTitle />
+            </div>
+            <span className="recommended-by-text">
+              Recommended by {reviews.length} contributors
+            </span>
+          </>
+        )}
         <Fab
           onClick={() => {
             history.push(`/add-review/${type}/${sitspotId}`);

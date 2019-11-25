@@ -18,7 +18,7 @@ class SinglePlace extends Component {
         {
           id: 1,
           src:
-            'https://res.cloudinary.com/amoodaa/image/upload/v1573735615/gfxscaodb75ah0uz8l8y.png',
+            'https://res.cloudinary.com/amoodaa/image/upload/v1574670362/IMG_20190611_141513_wdxzb3.jpg',
         },
       ],
       reviews: [],

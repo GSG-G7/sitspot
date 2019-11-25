@@ -13,11 +13,11 @@ const post = (req, res, next) => {
       return Promise.resolve('NO_IMAGE');
     })
     .then(image => {
-      const { secure_url: url } = image;
-      console.log(url.split('/image/upload/')[1].split('.')[0]);
-      if (image !== 'NO_IMAGE')
+      if (image !== 'NO_IMAGE') {
+        const { secure_url: url } = image;
         // eslint-disable-next-line prefer-destructuring
         body.img1 = url.split('/image/upload/')[1].split('.')[0];
+      }
       return body;
     })
     .then(addPlace)

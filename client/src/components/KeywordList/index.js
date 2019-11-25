@@ -2,21 +2,21 @@ import React from 'react';
 import { Icon } from 'antd';
 import propTypes from 'prop-types';
 
-import { keywords as reqKywords } from '../../services/api';
+import keywordObj from '../../staticDataSet/keywords';
 import Button from '../Button';
 
 import './index.css';
 
 class KeywordList extends React.Component {
   state = {
-    keywordsObj: {},
+    keywordsObj: keywordObj,
   };
 
-  componentDidMount() {
-    reqKywords().then(({ data }) => {
-      this.setState({ keywordsObj: data });
-    });
-  }
+  // componentDidMount() {
+  //   reqKywords().then(({ data }) => {
+  //     this.setState({ keywordsObj: data });
+  //   });
+  // }
 
   render() {
     const { keywords, toggleSelectKeyword, toggleKeywordList } = this.props;

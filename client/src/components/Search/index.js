@@ -67,7 +67,7 @@ class Search extends Component {
       keywords.push(keyword);
       this.setState({ keywords });
     } else {
-      keywords.splice(index, index + 1);
+      keywords.splice(index, 1);
       this.setState({ keywords });
     }
   };

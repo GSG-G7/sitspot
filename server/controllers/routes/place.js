@@ -16,7 +16,7 @@ const post = (req, res, next) => {
       if (image !== 'NO_IMAGE') {
         const { secure_url: url } = image;
         // eslint-disable-next-line prefer-destructuring
-        body.img1 = url.split('/image/upload/')[1].split('.')[0];
+        body.img1 = url.split('/image/upload/')[1];
       }
       return body;
     })
